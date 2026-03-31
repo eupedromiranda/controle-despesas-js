@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Despesas Simples</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Controle de Despesas</h1>
+
+  <form id="formDespesa">
+    <input type="text" id="nome" placeholder="Nome da despesa" required>
+    <input type="number" id="valor" placeholder="Valor" required step="0.01">
+
+    <select id="categoria">
+      <option value="fixa">Fixa</option>
+      <option value="alimentacao">Alimentação</option>
+      <option value="roupas">Roupas</option>
+      <option value="lazer">Lazer</option>
+    </select>
+
+    <input type="text" id="nota" placeholder="Notas adicionais (opcional)">
+
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <h2>Lista de Despesas</h2>
+  <div id="listaDespesas" class="lista-flex"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
