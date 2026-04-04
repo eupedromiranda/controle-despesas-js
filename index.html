@@ -2,31 +2,56 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Controle de Despesas Simples</title>
+  <title>Controle de Despesas</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Controle de Despesas</h1>
-
-  <form id="formDespesa">
-    <input type="text" id="nome" placeholder="Nome da despesa" required>
-    <input type="number" id="valor" placeholder="Valor" required step="0.01">
-
-    <select id="categoria">
-      <option value="fixa">Fixa</option>
-      <option value="alimentacao">Alimentação</option>
-      <option value="roupas">Roupas</option>
-      <option value="lazer">Lazer</option>
-    </select>
-
-    <input type="text" id="nota" placeholder="Notas adicionais (opcional)">
-
-    <button type="submit">Adicionar</button>
-  </form>
-
-  <h2>Lista de Despesas</h2>
-  <div id="listaDespesas" class="lista-flex"></div>
-
+  <div class="container">
+    <header>
+      <h1>Controle de Despesas</h1>
+      <button id="toggleDark">🌙 Modo escuro</button>
+    </header>
+    <main>
+      <div class="painel-esquerdo">
+        <form id="formDespesa">
+          <label>Nome</label>
+          <input type="text" id="nome" required>
+          <label>Valor</label>
+          <input type="number" id="valor" step="0.01" required>
+          <label>Categoria</label>
+          <select id="categoria">
+            <option value="fixa">Fixa</option>
+            <option value="alimentacao">Alimentação</option>
+            <option value="roupas">Roupas</option>
+            <option value="lazer">Lazer</option>
+          </select>
+          <label>Nota</label>
+          <input type="text" id="nota">
+          <button type="submit">Adicionar</button>
+        </form>
+        <div class="resumo">
+          <h3>Total: R$ <span id="total">0.00</span></h3>
+        </div>
+        <div class="filtro">
+          <select id="filtroCategoria">
+            <option value="todas">Todas</option>
+            <option value="fixa">Fixa</option>
+            <option value="alimentacao">Alimentação</option>
+            <option value="roupas">Roupas</option>
+            <option value="lazer">Lazer</option>
+          </select>
+        </div>
+      </div>
+      <div class="painel-direito">
+        <div class="grafico-container">
+          <canvas id="grafico"></canvas>
+        </div>
+        <div id="listaDespesas" class="lista-flex"></div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
