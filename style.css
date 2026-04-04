@@ -1,49 +1,148 @@
-body {
-  font-family: Arial, sans-serif;
-  max-width: 700px;
-  margin: 20px auto;
-  padding: 0 10px;
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6f8;
 }
 
-h1, h2 {
-  text-align: center;
-}
-
-input, select, button {
-  margin: 5px 0;
-  padding: 8px;
-  width: 100%;
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
   box-sizing: border-box;
 }
 
-button {
-  cursor: pointer;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.lista-flex {
+main {
   display: flex;
-  flex-wrap: wrap;
+  flex: 1;
+  gap: 15px;
+  height: calc(100% - 60px);
+}
+
+.painel-esquerdo {
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+}
+
+.painel-direito {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input, select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.resumo {
+  background: #8A05BE;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.filtro {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.grafico-container {
+  flex: 0 0 50%;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.despesa-card {
-  background: #f2f2f2;
-  padding: 10px;
-  border-radius: 6px;
-  width: 200px;
-  box-sizing: border-box;
+.lista-flex {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  flex-wrap: wrap;
+  gap: 15px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.despesa-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  width: 220px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.2s;
+}
+
+.despesa-card:hover {
+  transform: translateY(-3px);
+}
+
+button {
+  background: linear-gradient(90deg, #8A05BE, #9B51E0);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
 }
 
 .despesa-card button {
-  align-self: flex-end;
-  padding: 4px 8px;
-  background: #f44336;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+}
+
+.fixa { border-left: 5px solid #2196F3; }
+.alimentacao { border-left: 5px solid #4CAF50; }
+.roupas { border-left: 5px solid #9C27B0; }
+.lazer { border-left: 5px solid #FF9800; }
+
+.dark {
+  background: #121212;
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+}
+
+.dark .painel-direito,
+.dark form,
+.dark .filtro,
+.dark .despesa-card,
+.dark .grafico-container {
+  background: #1e1e1e;
+  color: white;
 }
